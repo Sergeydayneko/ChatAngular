@@ -5,16 +5,23 @@ import { MessageService } from './CSApplication/shared/chatService/messages.serv
 import { AppComponent } from './app.component';
 import { LoginComponent } from './CSApplication/CSComponents/login/login.component';
 import {MaterializeModule} from 'angular2-materialize';
+import {RouterModule, Routes} from '@angular/router';
+import {LoginModule} from './CSApplication/CSComponents/login/login.module';
 
+const appRoutes: Routes =[
+  { path: 'login', component: LoginComponent},
+  { path: '*', component: AppComponent}
+];
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    MaterializeModule
+    MaterializeModule,
+    RouterModule.forRoot(appRoutes),
+    LoginModule
   ],
   providers: [
     MessageService

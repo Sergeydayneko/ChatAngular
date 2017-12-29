@@ -1,3 +1,49 @@
-<p>
-  login works!
-</p>
+<img id="login-image" src="{{ this.imageSource }}">
+<p id="join-community">Join Our Community</p>
+<p id="join-logo">Blockchain Stock</p>
+
+<div id="registration-page" class="row cs-login">
+  <form class="col s12" method="post" action="#">
+
+    <div class="row">
+      <div class="input-field col s16">
+        <i class="material-icons prefix login-icon">person</i>
+        <input id="login" type="text" class="validate">
+        <label for="login">Login</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s16">
+        <i class="material-icons prefix login-icon">email</i>
+        <input placeholder="example@mail.ru" id="email" type="email" class="validate">
+        <label for="email">Email</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s16">
+        <i class="material-icons prefix login-icon">security</i>
+        <input id="password" type="password" class="validate">
+        <label for="password">Password</label>
+      </div>
+    </div>
+
+    <div class="row" id="confirm-block">
+      <div class="input-field col s16">
+        <input id="password-confirm" type="password" class="validate">
+        <label for="password-confirm">Confirm password</label>
+      </div>
+    </div>
+
+    <p id="agreement-check">
+      <input type="checkbox" class=" indigo lighten-2filled-in" id="filled-in-box" checked="checked" />
+      <label for="filled-in-box">I accept the user's request</label>
+    </p>
+
+    <button id="registration-button" class="indigo lighten-2 waves-effect waves-light" type="submit">Submit
+      <i class="material-icons right  ">send</i>
+    </button>
+
+  </form>
+</div>

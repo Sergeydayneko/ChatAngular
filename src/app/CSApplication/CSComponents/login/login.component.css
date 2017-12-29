@@ -1,0 +1,65 @@
+.cs-login {
+  min-height: 100vh;
+  margin-left: 850px;
+}
+
+#confirm-block {
+  margin-left: 46px;
+}
+
+#agreement-check {
+  margin-left: 20px
+}
+
+.row {
+  margin-bottom: -20px;
+}
+
+.login-icon {
+  margin-top: 8px;
+}
+
+#registration-button {
+  margin-top: 25px;
+  margin-bottom: 55px;
+  margin-left: 50px;
+  font-weight: 500;
+  color: white;
+  padding: .2em 3em;
+  border-radius: 3px;
+}
+
+#login-image {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  min-height: 70vh;
+  max-height: 80vh;
+  width: 600px;
+}
+
+#registration-page {
+  float: left;
+  margin-top: -500px;
+  align: left;
+}
+
+#join-community {
+  position: absolute;
+  margin-left: 320px;
+  margin-top: -113px;
+  color: rgba(0,0,0,0.6);
+  text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+               0px -5px 35px rgba(255,255,255,0.3);
+  font-size: 40px;
+}
+
+#join-logo {
+  position: absolute;
+  color: rgba(0,0,0,0.6);
+  text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+               0px -5px 35px rgba(255,255,255,0.3);
+  font-size: 40px;
+  margin-top: -485px;
+  margin-left: 30px;
+}
