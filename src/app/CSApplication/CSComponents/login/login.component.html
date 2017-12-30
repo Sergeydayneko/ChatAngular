@@ -3,12 +3,12 @@
 <p id="join-logo">Blockchain Stock</p>
 
 <div id="registration-page" class="row cs-login">
-  <form class="col s12" method="post" action="#">
+  <form class="col s12" (ngSubmit)="register()" novalidate [formGroup]="regForm">
 
     <div class="row">
       <div class="input-field col s16">
         <i class="material-icons prefix login-icon">person</i>
-        <input id="login" type="text" class="validate">
+        <input id="login" type="text" class="validate" name="login"  required>
         <label for="login">Login</label>
       </div>
     </div>
@@ -16,7 +16,7 @@
     <div class="row">
       <div class="input-field col s16">
         <i class="material-icons prefix login-icon">email</i>
-        <input placeholder="example@mail.ru" id="email" type="email" class="validate">
+        <input placeholder="example@mail.ru" id="email" type="email" name="email" class="validate"  required>
         <label for="email">Email</label>
       </div>
     </div>
@@ -24,14 +24,27 @@
     <div class="row">
       <div class="input-field col s16">
         <i class="material-icons prefix login-icon">security</i>
-        <input id="password" type="password" class="validate">
+        <input
+          id="password"
+          formControlName="password"
+          type="password"
+          class="validate"
+          [class.invalid]="regForm.controls['password'].invalid && regForm.controls['password'].touched"
+          required
+        >
         <label for="password">Password</label>
       </div>
     </div>
 
     <div class="row" id="confirm-block">
       <div class="input-field col s16">
-        <input id="password-confirm" type="password" class="validate">
+        <input id="password-confirm"
+               type="password"
+               class="validate"
+               formControlName="confirmPassword"
+               [class.invalid]="regForm.controls['confirmPassword'].hasError('MatchPassword')"
+               required
+        >
         <label for="password-confirm">Confirm password</label>
       </div>
     </div>
@@ -41,7 +54,7 @@
       <label for="filled-in-box">I accept the user's request</label>
     </p>
 
-    <button id="registration-button" class="indigo lighten-2 waves-effect waves-light" type="submit">Submit
+    <button id="registration-button" [disabled]="loading || regForm.invalid" class="indigo lighten-2 waves-effect waves-light" type="submit">Submit
       <i class="material-icons right  ">send</i>
     </button>
 

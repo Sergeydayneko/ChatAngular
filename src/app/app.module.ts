@@ -5,8 +5,9 @@ import { MessageService } from './CSApplication/shared/chatService/messages.serv
 import { AppComponent } from './app.component';
 import { LoginComponent } from './CSApplication/CSComponents/login/login.component';
 import {MaterializeModule} from 'angular2-materialize';
-import {RouterModule, Routes} from '@angular/router';
-import {LoginModule} from './CSApplication/CSComponents/login/login.module';
+import { RouterModule, Routes} from '@angular/router';
+import { LoginModule } from './CSApplication/CSComponents/login/login.module';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes =[
   { path: 'login', component: LoginComponent},
@@ -21,7 +22,8 @@ const appRoutes: Routes =[
     BrowserModule,
     MaterializeModule,
     RouterModule.forRoot(appRoutes),
-    LoginModule
+    LoginModule,
+    HttpClientModule
   ],
   providers: [
     MessageService
