@@ -5,7 +5,7 @@ export class PasswordValidation {
     let password = AC.get('password').value;
     let confirmPassword = AC.get('confirmPassword').value;
     if(password != confirmPassword) {
-      AC.get('confirmPassword').setErrors( {MatchPassword: true} )
+      AC.get('confirmPassword').setErrors( {matchPassword: true} )
     } else {
       return null
     }

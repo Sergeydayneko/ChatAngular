@@ -20,24 +20,25 @@ export class LoginComponent {
 
   constructor(private router: Router,
               private regService: LoginService,
-              private fb: FormBuilder)
+              private formBuilder: FormBuilder)
   {
 
-      this.regForm = fb.group({
+      this.regForm = formBuilder.group({
         'confirmPassword': ['', Validators.required],
-        'password': ['', [Validators.required,
-                                Validators.pattern('(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$')]]
+        'login'          : ['', Validators.required],
+        'agreement'      : ['', Validators.required],
+        'email'          : ['', [Validators.required,
+                                 Validators.pattern("^[-a-z0-9!#$%&'*+/=?^_`{|}~]+(\.[-a-z0-9!#$%&'*+/=?^_`{|}~]+)*@([a-z0-9]([-a-z0-9]{0,61}[a-z0-9])?\.)*")]],
+        'password'       : ['', [Validators.required,
+                                 Validators.pattern('(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$')]],
         }, {
         validator: PasswordValidation.MatchPassword
       })
   }
 
-  register(test: any) {
-    console.log(test)
-
-    // this.loading = true;
-    // console.log(this.user)
-    // this.regService.userRegistration(this.user)
+  register() {
+    this.loading = true;
+    this.regService.userRegistration(this.user)
 
   }
 
