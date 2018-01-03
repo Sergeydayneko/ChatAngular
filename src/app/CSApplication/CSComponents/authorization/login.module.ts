@@ -1,15 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { LoginComponent } from "./registration/registration.component";
+import { RegistrationComponent } from "./registration/registration.component";
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { LoginService } from './service/registration.service';
+import { RegistrationService } from './service/registration.service';
 import { AlertService } from './service/alert.service';
 import { AlertComponent } from './directive/alert.component';
+import {LoginComponent} from './login/login.component';
+import {LoginService} from './service/login.service';
 
 @NgModule({
   declarations: [
     LoginComponent,
-    AlertComponent
+    AlertComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -20,8 +23,9 @@ import { AlertComponent } from './directive/alert.component';
 
   ],
   providers: [
-    LoginService,
-    AlertService
+    RegistrationService,
+    AlertService,
+    LoginService
   ]
 })
 export class AuthorizationModule { }

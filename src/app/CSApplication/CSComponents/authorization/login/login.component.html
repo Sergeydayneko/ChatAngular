@@ -1,0 +1,43 @@
+<div id="registration-page" class="row cs-login">
+  <form class="col s12" (ngSubmit)="login()" novalidate>
+
+    <div class="row">
+      <div class="input-field col s16">
+        <i class="material-icons prefix login-icon">person</i>
+        <input
+          id    = "login"
+          type  = "text"
+          class = "validate"
+          name  = "login"
+          [(ngModel)] = "user.login"
+        >
+        <label for="login">Login</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input-field col s16">
+        <i class="material-icons prefix login-icon">security</i>
+        <input
+          id    = "password"
+          type  = "password"
+          class = "validate"
+          name  = "password"
+          [(ngModel)] = "user.password"
+        >
+        <label for="password">Password</label>
+      </div>
+    </div>
+
+    <button
+      id    = "registration-button"
+      class = "indigo lighten-2 waves-effect waves-light"
+      type  = "submit"
+      [disabled] = "loading"
+    >
+      Submit
+      <i class="material-icons right  ">send</i>
+    </button>
+
+  </form>
+</div>

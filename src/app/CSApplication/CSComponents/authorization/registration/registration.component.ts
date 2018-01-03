@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from '../service/registration.service';
+import { RegistrationService} from '../service/registration.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../model/userModel';
 import {PasswordValidation} from '../helpers/PasswordValidation';
@@ -11,7 +11,7 @@ import {AlertService} from '../service/alert.service';
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.css'],
 })
-export class LoginComponent {
+export class RegistrationComponent {
 
   imageSource = "https://cdn2.iconfinder.com/data/icons/blockchain/500/blockchain_12-512.png";
   regForm : FormGroup;
@@ -20,7 +20,7 @@ export class LoginComponent {
 
 
   constructor(private router: Router,
-              private regService: LoginService,
+              private regService: RegistrationService,
               private formBuilder: FormBuilder,
               private alertService: AlertService)
   {

@@ -5,7 +5,7 @@ import 'rxjs/Rx';
 import {User} from '../model/userModel';
 
 @Injectable()
-export class LoginService {
+export class RegistrationService {
   regUrl = "http://localhost:8080/api/user/registration";
 
   constructor(private http: HttpClient){}
