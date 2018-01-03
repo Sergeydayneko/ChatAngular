@@ -24,4 +24,4 @@ import { AlertComponent } from './directive/alert.component';
     AlertService
   ]
 })
-export class LoginModule { }
+export class AuthorizationModule { }
