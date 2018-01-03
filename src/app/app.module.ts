@@ -8,9 +8,11 @@ import {MaterializeModule} from 'angular2-materialize';
 import { RouterModule, Routes} from '@angular/router';
 import { LoginModule } from './CSApplication/CSComponents/login/login.module';
 import { HttpClientModule } from '@angular/common/http';
+import {AlertComponent} from './CSApplication/CSComponents/login/directive/alert.component';
 
 const appRoutes: Routes =[
   { path: 'login', component: LoginComponent},
+  { path: 'alert', component: AlertComponent},
   { path: '*', component: AppComponent}
 ];
 

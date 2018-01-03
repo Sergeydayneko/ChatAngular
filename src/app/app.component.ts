@@ -10,7 +10,7 @@ export class AppComponent {
 
   constructor(private router: Router){}
 
-  gohome() {
+  goHome() {
     this.router.navigate(['']);
   }
 

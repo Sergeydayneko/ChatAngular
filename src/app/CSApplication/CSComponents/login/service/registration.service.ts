@@ -11,15 +11,6 @@ export class LoginService {
   constructor(private http: HttpClient){}
 
   userRegistration(user: User) {
-    this.http.post(this.regUrl, user)
-      .subscribe(data => {
-        console.log(data);
-      })
-  }
-
-  //TODO сделать через shared общий сервис для обработки ошибок
-  private handleError(error: Response | any) {
-    console.error(error.message || error);
-    return Observable.throw(error.status);
+    return this.http.post(this.regUrl, user);
   }
 }

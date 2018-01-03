@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from './service/login.service';
+import { LoginService } from './service/registration.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from './model/userModel';
 import {PasswordValidation} from './helpers/PasswordValidation';
+import {AlertService} from './service/alert.service';
 
 @Component({
   selector: 'cs-login',
@@ -20,7 +21,8 @@ export class LoginComponent {
 
   constructor(private router: Router,
               private regService: LoginService,
-              private formBuilder: FormBuilder)
+              private formBuilder: FormBuilder,
+              private alertService: AlertService)
   {
 
       this.regForm = formBuilder.group({
@@ -39,8 +41,17 @@ export class LoginComponent {
   register() {
     this.loading = true;
     this.regService.userRegistration(this.user)
+      .subscribe(
+          data => {
+            console.log(data);
+            this.alertService.success('Successful registration', true)
+          },
+          error => {
+            console.log(error);
+            this.alertService.error(error);
+            this.loading = false;
+          }
+      )
 
   }
-
-
 }
