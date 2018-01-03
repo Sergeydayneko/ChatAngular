@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { MessageService } from './CSApplication/shared/chatService/messages.service'
 import { AppComponent } from './app.component';
-import { LoginComponent } from './CSApplication/CSComponents/login/login.component';
+import { LoginComponent } from './CSApplication/CSComponents/login/registration/registration.component';
 import {MaterializeModule} from 'angular2-materialize';
 import { RouterModule, Routes} from '@angular/router';
 import { LoginModule } from './CSApplication/CSComponents/login/login.module';

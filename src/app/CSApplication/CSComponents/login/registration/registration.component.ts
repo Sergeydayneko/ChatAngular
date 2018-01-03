@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginService } from './service/registration.service';
+import { LoginService } from '../service/registration.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from './model/userModel';
-import {PasswordValidation} from './helpers/PasswordValidation';
-import {AlertService} from './service/alert.service';
+import { User } from '../model/userModel';
+import {PasswordValidation} from '../helpers/PasswordValidation';
+import {AlertService} from '../service/alert.service';
 
 @Component({
   selector: 'cs-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.css'],
 })
 export class LoginComponent {
 
