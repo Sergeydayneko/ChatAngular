@@ -7,6 +7,17 @@ import { AlertService } from './service/alert.service';
 import { AlertComponent } from './directive/alert.component';
 import {LoginComponent} from './login/login.component';
 import {LoginService} from './service/login.service';
+import {ExitRegistrationGuard} from './guards/registration.guard';
+import {RouterModule} from '@angular/router';
+
+const appRoutesAuth = [
+  {
+    path: 'registration',
+    component: RegistrationComponent,
+    canDeactivate: [ExitRegistrationGuard]
+  },
+  { path: 'login', component: LoginComponent }
+]
 
 @NgModule({
   declarations: [
@@ -17,7 +28,9 @@ import {LoginService} from './service/login.service';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    //TODO Watch about forRoot and forChild specification
+    RouterModule.forChild(appRoutesAuth)
   ],
   exports: [
 
@@ -25,7 +38,8 @@ import {LoginService} from './service/login.service';
   providers: [
     RegistrationService,
     AlertService,
-    LoginService
+    LoginService,
+    ExitRegistrationGuard
   ]
 })
 export class AuthorizationModule { }

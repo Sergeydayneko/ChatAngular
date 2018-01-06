@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 import { Router } from '@angular/router';
 import { RegistrationService} from '../service/registration.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../model/userModel';
 import {PasswordValidation} from '../helpers/PasswordValidation';
 import {AlertService} from '../service/alert.service';
+import {Observable} from 'rxjs/Observable';
+import {ExitRegistrationGuard} from '../guards/registration.guard';
 
 @Component({
   selector: 'cs-login',
@@ -16,15 +18,16 @@ export class RegistrationComponent {
   imageSource = "https://cdn2.iconfinder.com/data/icons/blockchain/500/blockchain_12-512.png";
   regForm : FormGroup;
   loading = false;
+  notFill = true;
   user: User = new User();
 
 
   constructor(private router: Router,
               private regService: RegistrationService,
               private formBuilder: FormBuilder,
-              private alertService: AlertService)
+              private alertService: AlertService
+             )
   {
-
       this.regForm = formBuilder.group({
         'confirmPassword': ['', Validators.required],
         'login'          : ['', Validators.required],
@@ -52,6 +55,16 @@ export class RegistrationComponent {
             this.loading = false;
           }
       )
-
   }
+
+  //TODO Complete form starting validation
+  @HostListener("click", ['$event'])
+  fulfillStarted(event: Event) {
+    this.notFill = false;
+  }
+
+  canDeactivate() : boolean | Observable<boolean>{
+    return this.notFill;
+  }
+
 }

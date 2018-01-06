@@ -14,7 +14,11 @@ export class AppComponent {
     this.router.navigate(['']);
   }
 
-  goAuthorization() {
+  goLogin() {
+    this.router.navigate(['/login'])
+  }
+
+  goRegistration() {
     this.router.navigate(['/registration'])
   }
 }

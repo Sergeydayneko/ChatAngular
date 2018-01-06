@@ -8,7 +8,6 @@ import {LoginService} from '../service/login.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
   user: User = new User();
   loading: boolean = false;
 
@@ -25,7 +24,5 @@ export class LoginComponent {
             console.log(error)
           }
       )
-
   }
-
 }
