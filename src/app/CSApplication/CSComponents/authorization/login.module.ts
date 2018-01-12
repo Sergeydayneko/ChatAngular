@@ -3,12 +3,11 @@ import { NgModule } from '@angular/core';
 import { RegistrationComponent } from "./registration/registration.component";
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegistrationService } from './service/registration.service';
-import { AlertService } from './service/alert.service';
-import { AlertComponent } from './directive/alert.component';
 import {LoginComponent} from './login/login.component';
 import {LoginService} from './service/login.service';
 import {ExitRegistrationGuard} from './guards/registration.guard';
 import {RouterModule} from '@angular/router';
+import {JwtInterceptor} from './helpers/jwt.interceptor';
 
 const appRoutesAuth = [
   {
@@ -22,7 +21,6 @@ const appRoutesAuth = [
 @NgModule({
   declarations: [
     LoginComponent,
-    AlertComponent,
     RegistrationComponent
   ],
   imports: [
@@ -37,9 +35,9 @@ const appRoutesAuth = [
   ],
   providers: [
     RegistrationService,
-    AlertService,
     LoginService,
-    ExitRegistrationGuard
+    ExitRegistrationGuard,
+    JwtInterceptor 
   ]
 })
 export class AuthorizationModule { }

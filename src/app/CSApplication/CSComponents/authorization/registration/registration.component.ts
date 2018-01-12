@@ -4,9 +4,7 @@ import { RegistrationService} from '../service/registration.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../model/userModel';
 import {PasswordValidation} from '../helpers/PasswordValidation';
-import {AlertService} from '../service/alert.service';
 import {Observable} from 'rxjs/Observable';
-import {ExitRegistrationGuard} from '../guards/registration.guard';
 
 @Component({
   selector: 'cs-login',
@@ -24,8 +22,7 @@ export class RegistrationComponent {
 
   constructor(private router: Router,
               private regService: RegistrationService,
-              private formBuilder: FormBuilder,
-              private alertService: AlertService
+              private formBuilder: FormBuilder
              )
   {
       this.regForm = formBuilder.group({
@@ -47,11 +44,9 @@ export class RegistrationComponent {
       .subscribe(
           data => {
             console.log(data);
-            this.alertService.success('Successful registration', true)
           },
           error => {
             console.log(error);
-            this.alertService.error(error);
             this.loading = false;
           }
       )
@@ -66,5 +61,4 @@ export class RegistrationComponent {
   canDeactivate() : boolean | Observable<boolean>{
     return this.notFill;
   }
-
 }
