@@ -4,13 +4,15 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a (click)="goLogin()">Login</a></li>
       <li><a (click)="goRegistration()">Registration</a></li>
-      <li><a href="#">Books</a></li>
+      <li><a (click)="goStore()">Store</a></li>
       <li><a href="#">Education materials</a></li>
     </ul>
   </div>
 </nav>
 
-<router-outlet class="central-page"></router-outlet>
+<router-outlet class="central-page">
+
+</router-outlet>
 
 <footer class="page-footer footer indigo lighten-1">
   <div class="container">
