@@ -14,7 +14,7 @@ import { HomeComponent } from "./CSApplication/CSComponents/home/home.component"
 
 
 const appRoutes: Routes = [
-  { path: "**", component: HomeComponent }
+  { path: "**", redirectTo: "home" }
 ];
 
 @NgModule({

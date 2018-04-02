@@ -7,6 +7,7 @@ import {Router} from "@angular/router";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
+  // TODO рассмотреть переделывание навигации с указанием роутингов в html
 
   constructor(private router: Router){}
 
