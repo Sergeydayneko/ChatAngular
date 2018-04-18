@@ -6,6 +6,8 @@ import { StoreComponent } from './store.component';
 import { RouterModule } from '@angular/router';
 import {Cart} from "./service/cartService";
 import {CartSummaryComponent} from "./cart/cartBlock.component";
+import {fakeDataSource} from "./service/static.datacource";
+import {ProductRepository} from "./service/product.service";
 
 const appStoreHome = [
   {
@@ -26,7 +28,9 @@ const appStoreHome = [
     RouterModule.forChild(appStoreHome)
   ],
   providers: [
-    Cart
+    Cart,
+    ProductRepository,
+    fakeDataSource
   ]
 })
 export class StoreModule { }
