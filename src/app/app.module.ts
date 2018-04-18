@@ -11,6 +11,7 @@ import { ExitRegistrationGuard} from "./CSApplication/CSComponents/authorization
 import { StoreModule } from "./CSApplication/CSComponents/store/store.module";
 import { HomeModule } from "./CSApplication/CSComponents/home/home.module";
 import { HomeComponent } from "./CSApplication/CSComponents/home/home.component";
+import {OuterGuard} from "./OuterGuard";
 
 
 const appRoutes: Routes = [
