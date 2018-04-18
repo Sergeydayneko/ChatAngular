@@ -8,6 +8,8 @@ import {Cart} from "./service/cartService";
 import {CartSummaryComponent} from "./cart/cartBlock.component";
 import {fakeDataSource} from "./service/static.datacource";
 import {ProductRepository} from "./service/product.service";
+import {AppModule} from "../../../app.module";
+import {PaginationDirective} from "../../shared/pagintaion/pagination.directive";
 
 const appStoreHome = [
   {
@@ -19,7 +21,8 @@ const appStoreHome = [
 @NgModule({
   declarations: [
     StoreComponent,
-    CartSummaryComponent
+    CartSummaryComponent,
+    PaginationDirective
   ],
   imports: [
     BrowserModule,

@@ -7,12 +7,9 @@ import { MaterializeModule } from "angular2-materialize";
 import { RouterModule, Routes } from "@angular/router";
 import { AuthorizationModule } from "./CSApplication/CSComponents/authorization/auth.module";
 import { HttpClientModule } from "@angular/common/http";
-import { ExitRegistrationGuard} from "./CSApplication/CSComponents/authorization/guards/registration.guard";
 import { StoreModule } from "./CSApplication/CSComponents/store/store.module";
 import { HomeModule } from "./CSApplication/CSComponents/home/home.module";
-import { HomeComponent } from "./CSApplication/CSComponents/home/home.component";
-import {OuterGuard} from "./OuterGuard";
-
+import {GlobalGuard} from "./CSApplication/shared/guards/firstEntry.guard";
 
 const appRoutes: Routes = [
   { path: "**", redirectTo: "home" }
@@ -33,7 +30,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     MessageService,
-    ExitRegistrationGuard
+    GlobalGuard
   ],
   bootstrap: [AppComponent]
 })

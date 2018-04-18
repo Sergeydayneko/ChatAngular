@@ -40,12 +40,11 @@
     </select>
 
     <div>
-      <!--<button *counter="let page of pageCount"-->
-              <!--(click)="changePage(page)"-->
-              <!--[class.active]="page == selectedPage">-->
-
-        <!--{{ page }}-->
-      <!--</button>-->
+      <button *counter="let page of pageCount"
+              (click)="changePage(page)"
+              [class.active]="page == selectedPage">
+        {{ page }}
+      </button>
     </div>
 
   </div>
