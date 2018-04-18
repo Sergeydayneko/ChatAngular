@@ -1,0 +1,19 @@
+<div>
+
+  <small>
+    Your cart:
+    <span *ngIf="cart.itemCount > 0">
+      {{ cart.itemCount }} item(s)
+      {{ cart.cartPrice | currency:"USD":true:"2.2-2" }}
+    </span>
+    <span *ngIf="cart.itemCount == 0">
+      (empty)
+    </span>
+  </small>
+
+  <button [disabled]="cart.itemCount == 0" routerLink="/cart">
+    <i ></i>
+  </button>
+
+
+</div>
