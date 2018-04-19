@@ -4,7 +4,7 @@ import {Injectable} from "@angular/core";
 import {fakeDataSource} from "./static.datacource";
 
 @Injectable()
-export class OrderRepository {
+export class OrderService {
   private orders: Order[] = [];
 
   constructor(private dataSource: fakeDataSource) {}

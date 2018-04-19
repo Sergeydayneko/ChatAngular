@@ -1,7 +1,7 @@
 import {NgForm} from "@angular/forms";
 import {Order} from "../model/order.model";
-import {OrderRepository} from "../service/order.service";
 import {Component} from "@angular/core";
+import {OrderService} from "../service/order.service";
 
 @Component({
   moduleId: module.id,
@@ -12,7 +12,7 @@ export class CheckoutComponent {
   orderSent: boolean = false;
   submitted: boolean = false;
 
-  constructor(public repository: OrderRepository,
+  constructor(public repository: OrderService,
               public order: Order) {}
 
   submitOrder(form: NgForm) {

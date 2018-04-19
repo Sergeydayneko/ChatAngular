@@ -1,4 +1,4 @@
-import {Cart} from "../service/cartService";
+import {CartService} from "../service/cartService";
 import {Injectable} from "@angular/core";
 
 @Injectable()
@@ -12,7 +12,7 @@ export class Order {
   public country: string;
   public shipped: boolean = false;
 
-  constructor(public cart: Cart) { }
+  constructor(public cart: CartService) { }
 
   clear() {
     this.id = null;

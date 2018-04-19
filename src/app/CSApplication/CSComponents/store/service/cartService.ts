@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Product} from "../model/model.product";
 
 @Injectable()
-export class Cart {
+export class CartService {
   // Выбранные продукты. Выбранный продукт + его количество
   public lines: CartLine[] = [];
   public itemCount: number = 0;

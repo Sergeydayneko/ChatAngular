@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {Cart} from "../service/cartService";
+import {CartService} from "../service/cartService";
 
 
 @Component({
@@ -8,5 +8,5 @@ import {Cart} from "../service/cartService";
   templateUrl: 'cartBlock.component.html'
 })
 export class CartBlockComponent {
-  constructor(public cart: Cart) {}
+  constructor(public cart: CartService) {}
 }

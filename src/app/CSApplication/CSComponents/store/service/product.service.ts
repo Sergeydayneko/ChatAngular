@@ -3,7 +3,7 @@ import {Injectable} from "@angular/core";
 import {fakeDataSource} from "./static.datacource";
 
 @Injectable()
-export class ProductRepository {
+export class ProductService {
   private products: Product[] =  [];
   private categories: string[] = [];
 

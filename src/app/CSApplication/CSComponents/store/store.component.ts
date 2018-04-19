@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Product } from "./model/model.product";
-import {ProductRepository} from "./service/product.service";
-import {Cart} from "./service/cartService";
+import { ProductService} from "./service/product.service";
+import { CartService } from "./service/cartService";
 import {Router} from "@angular/router";
 // import { StoreService } from "./service/store.service";
 //  TODO при передаче продукты необходимо будет передавать в snapshot его id https://metanit.com/web/angular2/7.3.php
@@ -16,8 +16,8 @@ export class StoreComponent {
   public productsPerPage = 4;
   public selectedPage = 1;
 
-  constructor(private repository: ProductRepository,
-              private cart: Cart,
+  constructor(private repository: ProductService,
+              private cart: CartService,
               private router: Router) {}
 
   get products(): Product[] {
