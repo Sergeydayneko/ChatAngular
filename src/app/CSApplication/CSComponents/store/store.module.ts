@@ -5,11 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { StoreComponent } from './store.component';
 import { RouterModule } from '@angular/router';
 import {Cart} from "./service/cartService";
-import {CartSummaryComponent} from "./cart/cartBlock.component";
+import {CartBlockComponent} from "./cart/cartBlock.component";
 import {fakeDataSource} from "./service/static.datacource";
 import {ProductRepository} from "./service/product.service";
-import {AppModule} from "../../../app.module";
 import {PaginationDirective} from "../../shared/pagintaion/pagination.directive";
+import {CartComponent} from "./cart/cart.component";
 
 const appStoreHome = [
   {
@@ -21,8 +21,9 @@ const appStoreHome = [
 @NgModule({
   declarations: [
     StoreComponent,
-    CartSummaryComponent,
-    PaginationDirective
+    CartBlockComponent,
+    PaginationDirective,
+    CartComponent
   ],
   imports: [
     BrowserModule,

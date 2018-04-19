@@ -7,6 +7,6 @@ import {Cart} from "../service/cartService";
   moduleId: module.id,
   templateUrl: 'cartBlock.component.html'
 })
-export class CartSummaryComponent {
+export class CartBlockComponent {
   constructor(public cart: Cart) {}
 }
