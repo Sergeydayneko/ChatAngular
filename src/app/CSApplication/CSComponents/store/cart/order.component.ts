@@ -5,10 +5,9 @@ import {OrderService} from "../service/order.service";
 
 @Component({
   moduleId: module.id,
-  templateUrl: "checkout.component.html",
-  styleUrls: ["checkout.component.css"]
+  templateUrl: "order.component.html"
 })
-export class CheckoutComponent {
+export class OrderComponent {
   orderSent: boolean = false;
   submitted: boolean = false;
 

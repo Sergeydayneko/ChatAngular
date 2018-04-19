@@ -11,11 +11,25 @@ import {ProductService} from "./service/product.service";
 import {PaginationDirective} from "../../shared/pagintaion/pagination.directive";
 import {CartComponent} from "./cart/cart.component";
 import {OrderService} from "./service/order.service";
+import {GlobalGuard} from "../../shared/guards/firstEntry.guard";
+import {OrderComponent} from "./cart/order.component";
+import {FormsModule} from "@angular/forms";
+import {Order} from "./model/order.model";
 
 const appStoreHome = [
   {
     path: "store",
     component: StoreComponent
+  },
+  {
+    path: "cart",
+    component: CartComponent,
+    canActivate: [GlobalGuard]
+  },
+  {
+    path: "order",
+    component: OrderComponent,
+    canActivate: [GlobalGuard]
   }
 ];
 
@@ -24,19 +38,22 @@ const appStoreHome = [
     StoreComponent,
     CartBlockComponent,
     PaginationDirective,
-    CartComponent
+    CartComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,
     MaterializeModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forChild(appStoreHome)
   ],
   providers: [
     CartService,
     ProductService,
     OrderService,
-    fakeDataSource
+    fakeDataSource,
+    Order
   ]
 })
 export class StoreModule { }

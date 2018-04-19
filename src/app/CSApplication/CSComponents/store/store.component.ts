@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
 import { Product } from "./model/model.product";
 import { ProductService} from "./service/product.service";
 import { CartService } from "./service/cartService";
@@ -18,7 +18,10 @@ export class StoreComponent {
 
   constructor(private repository: ProductService,
               private cart: CartService,
-              private router: Router) {}
+              private router: Router
+              // TODO пока сделано с перерисовкой компонента при изменении состояния
+              // private strategy: ChangeDetectionStrategy.OnPush
+  ) {}
 
   get products(): Product[] {
     const pageIndex = (this.selectedPage - 1) * this.productsPerPage;

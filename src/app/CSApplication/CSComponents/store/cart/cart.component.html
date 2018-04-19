@@ -3,7 +3,7 @@
 </div>
 
 <div>
-  <h2>Your Cart</h2>
+  <h2></h2>
   <table>
     <thead>
     <tr>
@@ -15,7 +15,7 @@
     </thead>
     <tbody>
     <tr *ngIf="cart.lines.length == 0">
-      <td colspan="4" class="text-xs-center">
+      <td colspan="4">
         Your cart is empty
       </td>
     </tr>
@@ -29,13 +29,13 @@
       </td>
       <td>{{line.product.name}}</td>
       <td>
-        {{line.product.price | currency:"USD":true:"2.2-2"}}
+        {{line.product.price | currency:"RUB":true:"2.2-2"}}
       </td>
       <td>
-        {{(line.lineTotal) | currency:"USD":true:"2.2-2" }}
+        {{(line.lineTotal) | currency:"RUB":true:"2.2-2" }}
       </td>
       <td>
-        <button>(click)="cart.removeLine(line.product.id)">
+        <button (click)="cart.removeLine(line.product.id)">
           Remove
         </button>
       </td>
@@ -53,7 +53,7 @@
 </div>
 <div>
   <button routerLink="/store">Continue Shopping</button>
-  <button routerLink="/checkout"
+  <button routerLink="/order"
           [disabled]="cart.lines.length == 0">
     Checkout
   </button>
