@@ -11,7 +11,7 @@ export class LoginComponent {
   user: User = new User();
   loading: boolean = false;
 
-  constructor(private loginService: LoginService) { }
+  constructor(public loginService: LoginService) { }
 
   login() {
     this.loading = true;
@@ -24,5 +24,13 @@ export class LoginComponent {
             console.log(error)
           }
       )
+  }
+
+  get token() {
+    try {
+      return localStorage.getItem('currentUser') !== null;
+    } catch (error) {
+      throw new Error("ошибка локал сторэджа");
+    }
   }
 }

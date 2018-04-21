@@ -1,5 +1,9 @@
 <div id="registration-page" class="row cs-login">
-  <form class="col s12" (ngSubmit)="login()" novalidate>
+  <form class="col s12"
+        (ngSubmit)="login()"
+        *ngIf="!token"
+
+        novalidate>
 
     <div class="row">
       <div class="input-field col s16">
@@ -40,4 +44,9 @@
     </button>
 
   </form>
+  <button
+    *ngIf="token"
+    (click)="loginService.logout()">
+    Logout
+  </button>
 </div>

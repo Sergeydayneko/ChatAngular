@@ -27,14 +27,18 @@
   </div>
 
   <div>
-    <select [value]="productsPerPage"
-            (change)="changePageSize($event.target.value)">
+    <label for="pageSelector">Количество товаров на странице</label>
+      <select [value]="productsPerPage"
+              (change)="changePageSize($event.target.value)"
+              id="pageSelector">
 
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="6">6</option>
-      <option value="8">8</option>
-    </select>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="6">6</option>
+        <option value="8">8</option>
+      </select>
+
+
 
     <div>
       <button *counter="let page of pageCount"

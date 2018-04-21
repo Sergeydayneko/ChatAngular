@@ -26,4 +26,8 @@ export class AppComponent {
   goStore() {
     this.router.navigate(["store"]);
   }
+
+  goChat() {
+    this.router.navigate(["chat"])
+  }
 }

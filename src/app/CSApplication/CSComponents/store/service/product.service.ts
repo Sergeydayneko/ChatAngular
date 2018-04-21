@@ -1,19 +1,29 @@
 import {Product} from "../model/model.product";
 import {Injectable} from "@angular/core";
-import {fakeDataSource} from "./static.datacource";
+import {HttpClient} from "@angular/common/http";
+
+const PROTOCOL = "http";
+const PORT     = "8081";
 
 @Injectable()
 export class ProductService {
   private products: Product[] =  [];
   private categories: string[] = [];
+  private baseUrl: string;
+  private productsUrl: string = "/products"
 
-  // TODO нужно ли оставлять filter ?
-  constructor(private dataSource: fakeDataSource) {
-    dataSource.getProducts().subscribe( data => {
-      this.products = data;
-      this.categories = data.map(p => p.category)
-        .filter((c, index, array) => array.indexOf(c) === index).sort();
-    });
+  // TODO Заменяем на рест апи
+  constructor(private http: HttpClient) {
+    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}`;
+
+    this.http.get(`${this.baseUrl}${this.productsUrl}`)
+        .subscribe(products => {
+          this.products = products as Product[];
+          this.categories = this.products
+            .map(product => product.category)
+            .filter((category, index, array) => array.indexOf(category) == index)
+            .sort();
+        });
   }
 
   getProducts(category: string = null): Product[] | null {

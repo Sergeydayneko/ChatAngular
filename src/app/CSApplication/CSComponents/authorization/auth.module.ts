@@ -9,6 +9,7 @@ import { ExitRegistrationGuard } from "./guards/registration.guard";
 import { RouterModule } from "@angular/router";
 import { JwtInterceptor } from "./helpers/jwt.interceptor";
 import { appRoutesAuth } from "./auth-routes";
+import {HTTP_INTERCEPTORS} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,11 @@ import { appRoutesAuth } from "./auth-routes";
     RegistrationService,
     LoginService,
     ExitRegistrationGuard,
-    JwtInterceptor
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true,
+    }
   ]
 })
 export class AuthorizationModule { }

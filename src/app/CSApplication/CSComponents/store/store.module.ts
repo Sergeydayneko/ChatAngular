@@ -6,7 +6,6 @@ import { StoreComponent } from './store.component';
 import { RouterModule } from '@angular/router';
 import {CartService} from "./service/cartService";
 import {CartBlockComponent} from "./cart/cartBlock.component";
-import {fakeDataSource} from "./service/static.datacource";
 import {ProductService} from "./service/product.service";
 import {PaginationDirective} from "../../shared/pagintaion/pagination.directive";
 import {CartComponent} from "./cart/cart.component";
@@ -23,13 +22,13 @@ const appStoreHome = [
   },
   {
     path: "cart",
-    component: CartComponent,
-    canActivate: [GlobalGuard]
+    component: CartComponent
+    // canActivate: [GlobalGuard]
   },
   {
     path: "order",
-    component: OrderComponent,
-    canActivate: [GlobalGuard]
+    component: OrderComponent
+    // canActivate: [GlobalGuard]
   }
 ];
 
@@ -52,7 +51,6 @@ const appStoreHome = [
     CartService,
     ProductService,
     OrderService,
-    fakeDataSource,
     Order
   ]
 })
