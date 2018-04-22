@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { User } from '../model/userModel';
 import {LoginService} from '../service/login.service';
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'cs-login',
@@ -11,10 +12,11 @@ export class LoginComponent {
   user: User = new User();
   loading: boolean = false;
 
-  constructor(public loginService: LoginService) { }
+  constructor(public loginService: LoginService,
+              private cookie: CookieService) { }
 
   login() {
-    this.loading = true;
+    this.loading = false;
     this.loginService.userLogin(this.user)
       .subscribe(
           data => {
@@ -27,10 +29,6 @@ export class LoginComponent {
   }
 
   get token() {
-    try {
-      return localStorage.getItem('currentUser') !== null;
-    } catch (error) {
-      throw new Error("ошибка локал сторэджа");
-    }
+    return this.cookie.get('access_token');
   }
 }

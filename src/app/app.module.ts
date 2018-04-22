@@ -1,7 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
-import { MessageService } from "./CSApplication/shared/chatService/messages.service";
 import { AppComponent } from "./app.component";
 import { MaterializeModule } from "angular2-materialize";
 import { RouterModule, Routes } from "@angular/router";
@@ -32,7 +30,6 @@ const appRoutes: Routes = [
     HttpClientModule
   ],
   providers: [
-    MessageService,
     GlobalGuard
   ],
   bootstrap: [AppComponent]

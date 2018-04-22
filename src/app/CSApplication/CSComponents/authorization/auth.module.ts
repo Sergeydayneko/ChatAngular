@@ -4,12 +4,13 @@ import { RegistrationComponent } from "./registration/registration.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RegistrationService } from "./service/registration.service";
 import { LoginComponent } from "./login/login.component";
-import { LoginService } from "./service/login.service";
 import { ExitRegistrationGuard } from "./guards/registration.guard";
 import { RouterModule } from "@angular/router";
 import { JwtInterceptor } from "./helpers/jwt.interceptor";
 import { appRoutesAuth } from "./auth-routes";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
+import {CookieService} from "ngx-cookie-service";
+import {LoginService} from "./service/login.service";
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {HTTP_INTERCEPTORS} from "@angular/common/http";
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true,
-    }
+    },
+    CookieService
   ]
 })
 export class AuthorizationModule { }

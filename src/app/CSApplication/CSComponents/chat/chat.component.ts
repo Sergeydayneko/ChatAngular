@@ -3,12 +3,14 @@ import * as Stomp from "stompjs";
 import * as SockJS from 'sockjs-client';
 import * as $ from 'jquery';
 
+const PROTOCOL = "http";
+const PORT     = "8081";
+
 @Component({
   templateUrl: "chat.component.html"
 })
 export class ChatComponent {
-  private serverUrl = 'http://localhost:8081/socket'
-  private title = 'WebSockets chat';
+  private chatUrl = '/socket';
   private stompClient;
 
   constructor(){
@@ -16,10 +18,10 @@ export class ChatComponent {
   }
 
   initializeWebSocketConnection(){
-    let ws = new SockJS(this.serverUrl);
-    this.stompClient = Stomp.over(ws);
+    let webSocket = new SockJS(`${PROTOCOL}://${location.hostname}:${PORT}${this.chatUrl}`);
+    this.stompClient = Stomp.over(webSocket);
     let that = this;
-    this.stompClient.connect({}, function(frame) {
+    this.stompClient.connect({}, () => {
       that.stompClient.subscribe("/chat", (message) => {
         if(message.body) {
           $(".chat").append("<div class='message'>"+message.body+"</div>")

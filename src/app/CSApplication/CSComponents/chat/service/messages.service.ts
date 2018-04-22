@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Message } from './message';
+import { Message } from '../model/message';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class MessageService {
+export class ChatService {
   //TODO Добавить поддержку HTTPS
+  //TODO Прикрутить этот сервис
   allMessagesUrl = 'http://localhost:8080/api/getAllMessages';
   saveMessageUrl = 'http://localhost:8080/api/saveMessage';
   deleteMessageUrl = 'http://localhost:8080/api/deleteMessage';

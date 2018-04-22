@@ -4,6 +4,7 @@ import {FormsModule} from "@angular/forms";
 import {BrowserModule} from "@angular/platform-browser";
 import {ChatComponent} from "./chat.component";
 import {RouterModule} from "@angular/router";
+import {ChatService} from "./service/messages.service";
 
 export const chatRoute = [
   {
@@ -20,6 +21,6 @@ export const chatRoute = [
     RouterModule.forChild(chatRoute)
   ],
   declarations: [ChatComponent],
-  providers: []
+  providers: [ChatService]
 })
 export class ChatModule{}
