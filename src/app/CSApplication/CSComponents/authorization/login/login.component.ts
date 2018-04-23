@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { User } from '../model/userModel';
-import {LoginService} from '../service/login.service';
+import {Component} from "@angular/core";
+import {User} from "../model/userModel";
+import {LoginService} from "../service/login.service";
 import {CookieService} from "ngx-cookie-service";
 
 @Component({

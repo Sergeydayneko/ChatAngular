@@ -1,20 +1,27 @@
-<nav>
-  <div class="nav-wrapper indigo lighten-1">
-    <a class="brand-logo" (click)="goHome()">CryptoStock</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a routerLinkActive="activated" (click)="goLogin()">Login</a></li>
-      <li><a (click)="goRegistration()">Registration</a></li>
-      <li><a (click)="goStore()">Store</a></li>
-      <li><a (click)="goChat()">Chat</a></li>
-      <li><a href="#">Education materials</a></li>
+<nav class="nav-extended grey darken-4 5 z-depth-2" >
+  <div class="nav-wrapper ">
+    <a class="brand-logo" (click)="goHome()">E-Distributed</a>
+    <!--<a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>-->
+    <ul id="nav-mobile" class="right hide-on-med-and-down ">
+      <li><a class="link-front-color" (click)="goLogin()">Логин</a></li>
+      <li><a class="link-front-color top-right" (click)="goRegistration()" >Регистрация</a></li>
+    </ul>
+  </div>
+  <div class="nav-content">
+    <ul class="tabs tabs-transparent">
+      <li><a class="link-front-color top-right" (click)="goStore()">Магазин</a></li>
+      <li><a class="link-front-color" (click)="goChat()">Чат</a></li>
+      <li><a class="link-front-color" >Учебные материалы</a></li>
     </ul>
   </div>
 </nav>
 
+
+
 <router-outlet class="central-page">
 
 </router-outlet>
-
+<!--routerLinkActive="activated" Посмотреть и использовать для нав бара-->
 
 
 <!--<footer class="page-footer footer indigo lighten-1">-->
