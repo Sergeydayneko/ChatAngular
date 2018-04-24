@@ -9,19 +9,11 @@ import {Router} from "@angular/router";
 export class LoginService {
 // TODO Change Http.... to something like take current URL
   static AUTH_TOKEN = "http://localhost:8081/oauth/token";
-  public token: string;
 
   constructor(private http: HttpClient,
               private cookie: CookieService,
               private router: Router
-              ) {
-    JSON.parse(localStorage.getItem('currentUser'),
-      (key, value) => {
-        if (key === 'token' && key !== '') {
-          this.token = value;
-        }
-      })
-  }
+              ) { }
 
   userLogin(user: User) {
     const body = `username=${encodeURIComponent(user.login)}&password=${encodeURIComponent(user.password)}&grant_type=${TOKEN_GRANT_TYPE}`;
@@ -37,16 +29,17 @@ export class LoginService {
     return this.http.post(LoginService.AUTH_TOKEN, body, oauthOptions)
       .map((response: any) => {
         if (response.access_token) {
-          this.saveToken(response);
+          this.saveToken(response, user);
         } else {
           this.handleError();
         }
       });
   }
 
-  private saveToken(token) {
+  private saveToken(token, user) {
     let expireDate = new Date().getTime() + (1000 * token.expires_in);
     this.cookie.set("access_token", token.access_token, expireDate);
+    this.cookie.set("username", user.login, expireDate);
     return true;
   }
 
@@ -63,6 +56,11 @@ export class LoginService {
 
   logout() {
     this.cookie.delete('access_token');
+    this.cookie.delete('username');
     this.router.navigate(['/home']);
+  }
+
+  get check() {
+    return this.cookie.get('username') && this.cookie.get('access_token');
   }
 }

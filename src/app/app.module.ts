@@ -9,12 +9,13 @@ import { StoreModule } from "./CSApplication/CSComponents/store/store.module";
 import { HomeModule } from "./CSApplication/CSComponents/home/home.module";
 import {GlobalGuard} from "./CSApplication/shared/guards/firstEntry.guard";
 import {ChatModule} from "./CSApplication/CSComponents/chat/chat.module";
+import {LoginService} from "./CSApplication/CSComponents/authorization/service/login.service";
+import {NavbarModule} from "./CSApplication/CSComponents/navbar/navbar.module";
 
 const appRoutes: Routes = [
   { path: "**", redirectTo: "home" }
 ];
 
-// TODO Должен ли основной модуьл импортировать другие модули ?
 @NgModule({
   declarations: [
     AppComponent
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
     HttpClientModule
   ],
   providers: [
-    GlobalGuard
+    GlobalGuard,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

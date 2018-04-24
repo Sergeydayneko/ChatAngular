@@ -6,21 +6,21 @@
 
       <li><a class="link-front-color"
              (click)="goLogin()"
-             *ngIf="!this.login.check"
-          >Логин</a>
+             *ngIf="!this.logged"
+      >Логин</a>
       </li>
 
       <li><a class="link-front-color top-right"
              (click)="goRegistration()"
-             *ngIf="!this.login.check"
-          >Регистрация</a>
+             *ngIf="!this.logged"
+      >Регистрация</a>
       </li>
 
-      <li class="tab disabled" *ngIf="this.login.check">
+      <li class="tab disabled" *ngIf="this.logged">
         <a>Вы зашли под именем {{ getName }}</a>
       </li>
 
-      <li class="tab disabled" *ngIf="this.login.check">
+      <li class="tab disabled"*ngIf="this.logged">
         <a (click)="this.login.logout()">Выйти</a>
       </li>
 
@@ -34,8 +34,3 @@
     </ul>
   </div>
 </nav>
-
-<router-outlet class="central-page">
-
-</router-outlet>
-<!--routerLinkActive="activated" Посмотреть и использовать для нав бара-->

@@ -1,5 +1,7 @@
-import { Component } from "@angular/core";
+import {Component, OnChanges, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
+import {CookieService} from "ngx-cookie-service";
+import {LoginService} from "./CSApplication/CSComponents/authorization/service/login.service";
 
 @Component({
   selector: "app-root",
@@ -7,9 +9,9 @@ import {Router} from "@angular/router";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  // TODO рассмотреть переделывание навигации с указанием роутингов в html
-
-  constructor(private router: Router){}
+  constructor(private router: Router,
+              public cookie: CookieService,
+              private login : LoginService){}
 
   goHome() {
     this.router.navigate(["home"]);
