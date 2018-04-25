@@ -9,6 +9,8 @@ import {LoginService} from "./CSApplication/CSComponents/authorization/service/l
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
+
+  // TODO навигация не через методы здесь, а через RouterLink!!!
   constructor(private router: Router,
               public cookie: CookieService,
               private login : LoginService){}

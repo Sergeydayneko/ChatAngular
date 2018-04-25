@@ -11,6 +11,7 @@ import {GlobalGuard} from "./CSApplication/shared/guards/firstEntry.guard";
 import {ChatModule} from "./CSApplication/CSComponents/chat/chat.module";
 import {LoginService} from "./CSApplication/CSComponents/authorization/service/login.service";
 import {NavbarModule} from "./CSApplication/CSComponents/navbar/navbar.module";
+import {TreeviewModule} from "ngx-treeview";
 
 const appRoutes: Routes = [
   { path: "**", redirectTo: "home" }
@@ -27,6 +28,8 @@ const appRoutes: Routes = [
     ChatModule,
     MaterializeModule,
     RouterModule.forRoot(appRoutes),
+    //TODO TreeView по ходу дела и не нужен
+    TreeviewModule,
     AuthorizationModule,
     HttpClientModule
   ],

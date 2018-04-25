@@ -14,7 +14,10 @@ import {GlobalGuard} from "../../shared/guards/firstEntry.guard";
 import {OrderComponent} from "./cart/order.component";
 import {FormsModule} from "@angular/forms";
 import {Order} from "./model/order.model";
+import {TreeviewModule} from "ngx-treeview";
 
+
+//TODO переделать из отдельных компонентов в дочерние
 const appStoreHome = [
   {
     path: "store",
@@ -45,7 +48,8 @@ const appStoreHome = [
     MaterializeModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forChild(appStoreHome)
+    RouterModule.forChild(appStoreHome),
+    TreeviewModule.forRoot()
   ],
   providers: [
     CartService,

@@ -1,52 +1,69 @@
-<div>
-  <a>Welcome to our book store</a>
-  <cart-summary></cart-summary>
-</div>
-
-<div>
-  <button *ngFor="let category of categories"
-          [class.active]="category == selectedCategory"
-          (click)="changeCategory(category)">
-    {{ category }}
-  </button>
-</div>
-
-<div>
-  <div *ngFor="let product of products">
-    <h4>
-      {{ product.name }}
-      <span>
-        {{ product.price | currency:"RUB":true:"2.2-2"}}
-      </span>
-    </h4>
-    <div>
-      {{ product.description }}
-      <button (click)="addProductToCart(product)"
-      >Add to cart</button>
-    </div>
+<div id="store-products">
+  <div>
+    <a>Welcome to our book store</a>
+    <cart-summary></cart-summary>
   </div>
 
   <div>
-    <label for="pageSelector">Количество товаров на странице</label>
-      <select [value]="productsPerPage"
-              (change)="changePageSize($event.target.value)"
-              id="pageSelector">
+    <button *ngFor="let category of categories"
+            [class.active]="category == selectedCategory"
+            (click)="changeCategory(category)">
+      {{ category }}
+    </button>
+  </div>
 
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="6">6</option>
-        <option value="8">8</option>
-      </select>
-
-
-
-    <div>
-      <button *counter="let page of pageCount"
-              (click)="changePage(page)"
-              [class.active]="page == selectedPage">
-        {{ page }}
-      </button>
+  <div>
+    <div *ngFor="let product of products">
+      <h4>
+        {{ product.name }}
+        <span>
+          {{ product.price | currency:"RUB":true:"2.2-2"}}
+        </span>
+      </h4>
+      <div>
+        {{ product.description }}
+        <button (click)="addProductToCart(product)"
+        >Add to cart</button>
+      </div>
     </div>
 
+    <div>
+      <label for="pageSelector">Количество товаров на странице</label>
+        <select [value]="productsPerPage"
+                (change)="changePageSize($event.target.value)"
+                id="pageSelector">
+
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="6">6</option>
+          <option value="8">8</option>
+        </select>
+
+
+
+      <div>
+        <button *counter="let page of pageCount"
+                (click)="changePage(page)"
+                [class.active]="page == selectedPage">
+          {{ page }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="row" id="store-tree">
+  <div class="col-12">
+    <div class="row">
+
+      <div class="col-lg-4 col-sm-12">
+        <div class="form-group">
+          <ngx-treeview [config]="config" [items]="items" (filterChange)="onFilterChange($event)" (selectedChange)="values = $event">
+          </ngx-treeview>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
