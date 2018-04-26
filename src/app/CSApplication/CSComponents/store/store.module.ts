@@ -15,6 +15,7 @@ import {OrderComponent} from "./cart/order.component";
 import {FormsModule} from "@angular/forms";
 import {Order} from "./model/order.model";
 import {TreeviewModule} from "ngx-treeview";
+import {ProductsComponent} from "./products/products.component";
 
 
 //TODO переделать из отдельных компонентов в дочерние
@@ -41,7 +42,8 @@ const appStoreHome = [
     CartBlockComponent,
     PaginationDirective,
     CartComponent,
-    OrderComponent
+    OrderComponent,
+    ProductsComponent
   ],
   imports: [
     BrowserModule,
