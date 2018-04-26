@@ -35,10 +35,6 @@ export class NavbarComponent implements OnInit{
     this.router.navigate(["chat"])
   }
 
-  get getName() {
-    return this.cookie.get("username");
-  }
-
   public ngOnInit() {
     this.logged = this.cookie.check("access_token");
   }

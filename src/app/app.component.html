@@ -17,7 +17,7 @@
       </li>
 
       <li class="tab disabled" *ngIf="this.login.check">
-        <a>Вы зашли под именем {{ getName }}</a>
+        <a>Вы зашли под именем {{ this.cookie.get("username") }}</a>
       </li>
 
       <li class="tab disabled" *ngIf="this.login.check">
