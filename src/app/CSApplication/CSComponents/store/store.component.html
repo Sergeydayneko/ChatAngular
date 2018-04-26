@@ -17,14 +17,5 @@
 </div>
 
 <div class="row" id="store-tree">
-  <div class="col-12">
-    <div class="row">
-      <div class="col-lg-4 col-sm-12">
-        <div class="form-group">
-          <ngx-treeview [config]="config" [items]="items" (filterChange)="onFilterChange($event)" (selectedChange)="values = $event">
-          </ngx-treeview>
-        </div>
-      </div>
-    </div>
-  </div>
+  <cs-store-sidebar></cs-store-sidebar>
 </div>
