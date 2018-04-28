@@ -1,21 +1,6 @@
-<!--<div>-->
-<!--<button *ngFor="let category of categories"-->
-<!--[class.active]="category == selectedCategory"-->
-<!--(click)="changeCategory(category)">-->
-<!--{{ category }}-->
-<!--</button>-->
-<!--</div>-->
-
 <div id="store-cart-block">
   <a>Welcome to our book store</a>
   <cart-summary></cart-summary>
 </div>
 
-
-<div id="store-products">
-  <cs-products></cs-products>
-</div>
-
-<div class="row" id="store-tree">
-  <cs-store-sidebar></cs-store-sidebar>
-</div>
+<cs-products></cs-products>

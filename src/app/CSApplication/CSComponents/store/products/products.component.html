@@ -1,46 +1,63 @@
-<div *ngFor="let product of products" class="store-product">
-  <h4>
-    <div>
-      {{ product.name }}
-    </div>
-    <span>
-          {{ product.price | currency:"RUB ":true:"2.2-2"}}
-        </span>
-  </h4>
-  <div>
-    <div class="product-description">
-      {{ product.description }}
-    </div>
-
-    <div class="add-to-cart">
-      <button (click)="addProductToCart(product)"
-      >Add to cart</button>
+<div class="row" id="store-tree">
+  <div class="col-lg-4 col-sm-12">
+    <div class="form-group">
+      <ngx-dropdown-treeview
+        [buttonClass]="buttonClass"
+        [config]="config"
+        [items]="items"
+        (filterChange)="onFilterChange($event)"
+        (selectedChange)="values = $event"
+      >
+      </ngx-dropdown-treeview>
     </div>
   </div>
-  <hr/>
 </div>
 
+<div id="store-products">
+  <div *ngFor="let product of products" class="store-product">
+    <h4>
+      <div>
+        {{ product.name }}
+      </div>
+      <span>
+            {{ product.price | currency:"RUB ":true:"2.2-2"}}
+          </span>
+    </h4>
+    <div>
+      <div class="product-description">
+        {{ product.description }}
+      </div>
 
-<div>
-  <label for="pageSelector">Количество товаров на странице</label>
-  <select [value]="productsPerPage"
-          (change)="changePageSize($event.target.value)"
-          id="pageSelector">
-
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="6">6</option>
-    <option value="8">8</option>
-  </select>
-
+      <div class="add-to-cart">
+        <button (click)="addProductToCart(product)"
+        >Add to cart</button>
+      </div>
+    </div>
+    <hr/>
+  </div>
 
 
   <div>
-    <button *counter="let page of pageCount"
-            (click)="changePage(page)"
-            [class.active]="page == selectedPage">
-      {{ page }}
-    </button>
-  </div>
+    <label for="pageSelector">Количество товаров на странице</label>
+    <select [value]="productsPerPage"
+            (change)="changePageSize($event.target.value)"
+            id="pageSelector">
 
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="6">6</option>
+      <option value="8">8</option>
+    </select>
+
+
+
+    <div>
+      <button *counter="let page of pageCount"
+              (click)="changePage(page)"
+              [class.active]="page == selectedPage">
+        {{ page }}
+      </button>
+    </div>
+
+  </div>
 </div>

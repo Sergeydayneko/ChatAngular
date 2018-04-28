@@ -4,8 +4,8 @@ import {CartService} from "../service/cartService";
 
 @Component({
   selector: 'cart-summary',
-  moduleId: module.id,
-  templateUrl: 'cartBlock.component.html'
+  templateUrl: 'cartBlock.component.html',
+  styleUrls: ["cartBlock.component.scss"]
 })
 export class CartBlockComponent {
   constructor(public cart: CartService) {}

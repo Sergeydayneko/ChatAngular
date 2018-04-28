@@ -4,15 +4,42 @@ import {Product} from "../model/model.product";
 import {Router} from "@angular/router";
 import {ProductService} from "../service/product.service";
 import {CartService} from "../service/cartService";
+import {TreeviewConfig, TreeviewItem} from "ngx-treeview";
 
 @Component({
   selector: "cs-products",
-  templateUrl: "products.component.html"
+  templateUrl: "products.component.html",
+  styleUrls: ["products.component.scss"]
 })
 export class ProductsComponent {
   public selectedCategory = null;
   public productsPerPage = 4;
   public selectedPage = 1;
+
+  // Sidebar constants
+  // dropdownEnabled = true;
+  items: TreeviewItem[];
+  values: number[];
+  config = TreeviewConfig.create({
+    hasAllCheckBox: true,
+    hasFilter: true,
+    hasCollapseExpand: true,
+    decoupleChildFromParent: false,
+    maxHeight: 400
+  });
+
+  buttonClasses = [
+    'btn-outline-primary',
+    'btn-outline-secondary',
+    'btn-outline-success',
+    'btn-outline-danger',
+    'btn-outline-warning',
+    'btn-outline-info',
+    'btn-outline-light',
+    'btn-outline-dark'
+  ];
+
+  buttonClass = this.buttonClasses[0];
 
   constructor(private repository: ProductService,
               private cart: CartService,
@@ -51,5 +78,13 @@ export class ProductsComponent {
   addProductToCart(product: Product) {
     this.cart.addLine(product);
     this.router.navigateByUrl("/cart");
+  }
+
+  ngOnInit() {
+    this.items = this.service.getBooks();
+  }
+
+  onFilterChange(value: string) {
+    console.log('filter:', value);
   }
 }
