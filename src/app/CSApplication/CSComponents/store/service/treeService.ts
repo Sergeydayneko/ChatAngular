@@ -1,46 +1,34 @@
 import {TreeviewItem} from "ngx-treeview";
 
+// TODO переделать на категория получаеыме с сервера
 export class BookService {
   getBooks(): TreeviewItem[] {
-    const childrenCategory = new TreeviewItem({
-      text: 'Children', value: 1, collapsed: true, children: [
-        { text: 'Baby 3-5', value: 11 },
-        { text: 'Baby 6-8', value: 12 },
-        { text: 'Baby 9-12', value: 13 }
-      ]
-    });
     const itCategory = new TreeviewItem({
-      text: 'IT', value: 9, children: [
-        {
-          text: 'Programming', value: 91, children: [{
-            text: 'Frontend', value: 911, children: [
-              { text: 'Angular 1', value: 9111 },
-              { text: 'Angular 2', value: 9112 },
-              { text: 'ReactJS', value: 9113, disabled: true }
-            ]
-          }, {
-            text: 'Backend', value: 912, children: [
-              { text: 'C#', value: 9121 },
-              { text: 'Java', value: 9122 },
-              { text: 'Python', value: 9123, checked: false, disabled: true }
-            ]
-          }]
-        },
-        {
-          text: 'Networking', value: 92, children: [
-            { text: 'Internet', value: 921 },
-            { text: 'Security', value: 922 }
+      text: 'IT', value: 'IT', children: [
+              { text: 'Angular 1', value: 'IT' },
+              { text: 'Angular 2', value: 'IT'}
           ]
-        }
+        });
+
+    const otherCategory = new TreeviewItem({
+      text: 'Cooking', value: 'Cooking', children: [
+        { text: 'Best reciepes', value: 'Cooking'}
       ]
     });
-    const teenCategory = new TreeviewItem({
-      text: 'Teen', value: 2, collapsed: true, disabled: true, children: [
-        { text: 'Adventure', value: 21 },
-        { text: 'Science', value: 22 }
+
+    const fairyTeil = new TreeviewItem({
+      text: 'Fairyteils', value: 'Fairyteil', children: [
+        {text: 'Whitesnow', value: 'Fairyteil'}
       ]
     });
-    const othersCategory = new TreeviewItem({ text: 'Others', value: 3, checked: false, disabled: true });
-    return [childrenCategory, itCategory, teenCategory, othersCategory];
+
+    const simpleBook = new TreeviewItem({
+      text: 'Simple Books', value: 'SimpleBook', children: [
+        {text: 'Good Book', value: 'SimpleBook'},
+        {text: 'Bad book', value: 'SimpleBook'}
+      ]
+    });
+
+    return [itCategory, otherCategory, fairyTeil, simpleBook];
   }
 }

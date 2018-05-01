@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, OnChanges, OnInit} from "@angular/core";
 import {BookService} from "../service/treeService";
 import {Product} from "../model/model.product";
 import {Router} from "@angular/router";
@@ -11,15 +11,15 @@ import {TreeviewConfig, TreeviewItem} from "ngx-treeview";
   templateUrl: "products.component.html",
   styleUrls: ["products.component.scss"]
 })
-export class ProductsComponent {
-  public selectedCategory = null;
+export class ProductsComponent implements OnInit {
+  public selectedCategories: string[] = null;
   public productsPerPage = 4;
   public selectedPage = 1;
 
   // Sidebar constants
   // dropdownEnabled = true;
   items: TreeviewItem[];
-  values: number[];
+  values: any[];
   config = TreeviewConfig.create({
     hasAllCheckBox: true,
     hasFilter: true,
@@ -50,8 +50,9 @@ export class ProductsComponent {
   ) {}
 
   get products(): Product[] {
+    console.log(this.selectedCategories)
     const pageIndex = (this.selectedPage - 1) * this.productsPerPage;
-    return this.repository.getProducts(this.selectedCategory)
+    return this.repository.getProducts(this.selectedCategories)
       .slice(pageIndex, pageIndex + this.productsPerPage);
   }
 
@@ -59,9 +60,6 @@ export class ProductsComponent {
     return this.repository.getCategories();
   }
 
-  changeCategory(newCategory?: string) {
-    this.selectedCategory = newCategory;
-  }
   changePage(newPage: number) {
     this.selectedPage = newPage;
   }
@@ -72,7 +70,7 @@ export class ProductsComponent {
   }
 
   get pageCount(): number {
-    return Math.ceil(this.repository.getProducts(this.selectedCategory).length / this.productsPerPage);
+    return Math.ceil(this.repository.getProducts(this.selectedCategories).length / this.productsPerPage);
   }
 
   addProductToCart(product: Product) {
@@ -85,6 +83,6 @@ export class ProductsComponent {
   }
 
   onFilterChange(value: string) {
-    console.log('filter:', value);
+    console.log(this.selectedCategories);
   }
 }

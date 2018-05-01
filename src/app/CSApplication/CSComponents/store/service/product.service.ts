@@ -26,9 +26,9 @@ export class ProductService {
         });
   }
 
-  getProducts(category: string = null): Product[] | null {
+  getProducts(categories: string[] = null): Product[] | null {
     return this.products
-      .filter(p => category === null || category === p.category);
+      .filter(p => categories === null || categories.indexOf(p.category) >= 0);
   }
 
   getProduct(id: number): Product | null {
