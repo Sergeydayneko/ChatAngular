@@ -7,9 +7,9 @@ import { HttpClient } from '@angular/common/http';
 export class ChatService {
   //TODO Добавить поддержку HTTPS
   //TODO Прикрутить этот сервис
-  allMessagesUrl = 'http://localhost:8080/api/getAllMessages';
-  saveMessageUrl = 'http://localhost:8080/api/saveMessage';
-  deleteMessageUrl = 'http://localhost:8080/api/deleteMessage';
+  allMessagesUrl = 'http://localhost:8081/api/getAllMessages';
+  saveMessageUrl = 'http://localhost:8081/api/saveMessage';
+  deleteMessageUrl = 'http://localhost:8081/api/deleteMessage';
 
   constructor(private http: HttpClient) {
   }

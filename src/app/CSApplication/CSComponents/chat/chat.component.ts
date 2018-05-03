@@ -7,7 +7,8 @@ const PROTOCOL = "http";
 const PORT     = "8081";
 
 @Component({
-  templateUrl: "chat.component.html"
+  templateUrl: "chat.component.html",
+  styleUrls: ["chat.component.scss"]
 })
 export class ChatComponent {
   private chatUrl = '/socket';
@@ -34,6 +35,55 @@ export class ChatComponent {
   sendMessage(message){
     this.stompClient.send("/app/send/message" , {}, message);
     $('#input').val('');
+  }
+
+  messages = [];
+  totalOnline = 0;
+  user = 1;
+
+  ngOnInit() {
+    this.messages = [
+      {
+        message : 'Hi',
+        userId : 2,
+        time : "12:13"
+      },
+      {
+        message : 'Hi Dev',
+        userId : 1,
+        time : "12:13"
+      },
+      {
+        message : 'Whats up',
+        userId : 2,
+        time : "12:13"
+      },
+      {
+        message : 'Fine',
+        userId : 1,
+        time : "12:13"
+      },
+      {
+        message : 'All good? Whats new',
+        userId : 1,
+        time : "12:13"
+      },
+      {
+        message : 'Learning MEAN',
+        userId : 2,
+        time : "12:13"
+      },
+      {
+        message : 'Wow',
+        userId : 1,
+        time : "12:13"
+      },
+      {
+        message : 'This chat app is awesome',
+        userId : 2,
+        time : "12:13"
+      }
+    ]
   }
 
 }
