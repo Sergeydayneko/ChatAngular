@@ -34,8 +34,20 @@ export class ChatComponent {
 
   sendMessage(message){
     this.stompClient.send("/app/send/message" , {}, message);
-    $('#input').val('');
+
   }
+
+  //
+  // sendMessage(message) {
+  //   const nd = new Date;
+  //   const data = {
+  //     message,
+  //     userId: this.user,
+  //     time: nd.getHours() + ":" + nd.getMinutes()
+  //   };
+  //
+  //   this.messages = [...this.messages, data];
+  // }
 
   messages = [];
   totalOnline = 0;
@@ -85,5 +97,16 @@ export class ChatComponent {
       }
     ]
   }
+
+  // sendMessage(message) {
+  //   const nd = new Date;
+  //   const data = {
+  //     message,
+  //     userId: this.user,
+  //     time: nd.getHours() + ":" + nd.getMinutes()
+  //   };
+  //
+  //   this.messages = [...this.messages, data];
+  // }
 
 }
