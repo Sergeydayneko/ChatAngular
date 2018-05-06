@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class ChatService {
   //TODO Добавить поддержку HTTPS
   //TODO Прикрутить этот сервис
-  allMessagesUrl = 'http://localhost:8081/api/getAllMessages';
+  allMessagesUrl = 'http://localhost:8081/getAllMessages';
   saveMessageUrl = 'http://localhost:8081/api/saveMessage';
   deleteMessageUrl = 'http://localhost:8081/api/deleteMessage';
 
@@ -15,18 +15,22 @@ export class ChatService {
   }
 
   getAllMessages(): Observable<Message[]> {
-    return this.http
-      .get(this.allMessagesUrl)
-      .map(this.extractData)
-      .catch(this.handleError)
+    return this.http.get(this.allMessagesUrl)
+      .map(data => {
+        debugger
+        if (data instanceof Array)
+          return data.map(message => {
+            return new Message(message.username, message.text, message.date);
+          })
+      })
   }
 
-  //TODO доделать обработку успешного результата
-  saveMessage(message: Message): void {
-    this.http.post(this.saveMessageUrl, message)
-      .map(success => success)
-      .catch(this.handleError)
-  }
+//   return this.http.get('users.json').pipe(map(data=>{
+//   let usersList = data["userList"];
+//   return usersList.map(function(user:any) {
+//     return {name: user.userName, age: user.userAge};
+//   });
+// }));
 
   deleteMessage(message: Message): void {
     this.http.post(this.deleteMessageUrl, message)
@@ -34,7 +38,8 @@ export class ChatService {
       .catch(this.handleError )
   }
 
-  private extractData(response: Response) {
+  private extractData(response: any) {
+    debugger
     return response.json()
   }
 

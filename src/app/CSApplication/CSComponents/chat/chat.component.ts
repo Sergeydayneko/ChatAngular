@@ -3,6 +3,7 @@ import * as Stomp from "stompjs";
 import * as SockJS from 'sockjs-client';
 import {CookieService} from "ngx-cookie-service";
 import {Message} from "./model/message";
+import {ChatService} from "./service/messages.service";
 
 const PROTOCOL = "http";
 const PORT     = "8081";
@@ -19,9 +20,10 @@ export class ChatComponent {
 
   // TODO сделать сервис получения сохраненных сообщений из бэкэнда
 
-  constructor(private cookie: CookieService){
+  constructor(private cookie      : CookieService,
+              private chatService : ChatService
+              ){
     this.initializeWebSocketConnection();
-    this.username = this.cookie.get("username");
   }
 
   initializeWebSocketConnection(){
@@ -47,10 +49,19 @@ export class ChatComponent {
   }
 
   ngOnInit() {
+    this.username = this.cookie.get("username");
+
     this.messages = [
       new Message("Serj", "hello everybody", "22:32:43"),
       new Message("Roma", "hello everybody", "22:32:33"),
       new Message("Igor", "hello everybody", "22:32:53")
-    ]
+    ];
+
+    let that = this;
+    this.chatService
+      .getAllMessages()
+      .subscribe((data) => {
+        that.messages = [...that.messages, ...data]
+    })
   }
 }
