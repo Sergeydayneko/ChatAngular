@@ -38,4 +38,32 @@ export class ProductService {
   getCategories(): string[] {
     return this.categories;
   }
+
+  // TODO нужно ли делать stringify
+  // разбор 2
+  saveProduct(product: Product) {
+    if (product.id == null || product.id ==0) {
+      this.http.post("localhost:8081/saveproduct", JSON.stringify(product))
+        .subscribe(p => this.products.push(p))
+    } else {
+      this.http.post("localhost:8081/updateproduct", JSON.stringify(product))
+        .subscribe(p => {
+          this.products
+            .splice(this.products.findIndex(
+            p => p.id == product.id
+            ), 1, product);
+        })
+    }
+  }
+
+  // TODO Р2
+  deleteProduct(id: number) {
+    this.http.delete("localhost:8081:deleteproduct")
+      .subscribe(p => {
+        this.products.splice(this.products.findIndex(
+          p => p.id == id), 1);
+      })
+  }
+
+
 }

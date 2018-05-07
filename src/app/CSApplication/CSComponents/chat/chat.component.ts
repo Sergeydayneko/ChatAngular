@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import * as Stomp from "stompjs";
 import * as SockJS from 'sockjs-client';
 import {CookieService} from "ngx-cookie-service";
@@ -12,7 +12,7 @@ const PORT     = "8081";
   templateUrl: "chat.component.html",
   styleUrls: ["chat.component.scss"]
 })
-export class ChatComponent {
+export class ChatComponent implements OnInit {
   private chatUrl = '/socket';
   private stompClient;
   public messages: Message[];
@@ -44,7 +44,6 @@ export class ChatComponent {
       username : this.username,
       text     : text.trim()
     };
-
     this.stompClient.send("/app/send/message" , {}, JSON.stringify(data));
   }
 

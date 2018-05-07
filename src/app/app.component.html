@@ -20,6 +20,13 @@
         <a>Вы зашли под именем {{ this.cookie.get("username") }}</a>
       </li>
 
+      <li><a class="tab disabled"
+             (click)="goAdmin()"
+             *ngIf="this.login.checkkAdmin"
+      >Администрирование</a>
+      </li>
+
+
       <li class="tab disabled" *ngIf="this.login.check">
         <a (click)="this.login.logout()">Выйти</a>
       </li>

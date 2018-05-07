@@ -63,4 +63,8 @@ export class LoginService {
   get check() {
     return this.cookie.get('username') && this.cookie.get('access_token');
   }
+
+  get checkkAdmin() {
+    return this.cookie.get('username') == 'Admin' && this.cookie.get('access_token');
+  }
 }

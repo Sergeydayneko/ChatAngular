@@ -34,4 +34,8 @@ export class AppComponent {
   goChat() {
     this.router.navigate(["chat"])
   }
+
+  goAdmin() {
+    this.router.navigate(["admin"])
+  }
 }

@@ -11,6 +11,7 @@ import { appRoutesAuth } from "./auth-routes";
 import {HTTP_INTERCEPTORS} from "@angular/common/http";
 import {CookieService} from "ngx-cookie-service";
 import {LoginService} from "./service/login.service";
+import {AdminComponent} from "./admin/admin.component";
 
 @NgModule({
   declarations: [
