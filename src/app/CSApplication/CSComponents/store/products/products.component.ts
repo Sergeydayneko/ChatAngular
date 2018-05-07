@@ -1,6 +1,6 @@
 import {Component, OnChanges, OnInit} from "@angular/core";
 import {BookService} from "../service/treeService";
-import {Product} from "../model/model.product";
+import {Product} from "../model/product.model";
 import {Router} from "@angular/router";
 import {ProductService} from "../service/product.service";
 import {CartService} from "../service/cartService";

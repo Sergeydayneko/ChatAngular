@@ -6,6 +6,8 @@ import {NgModule} from "@angular/core";
 import {OrdersAdminComponent} from "./components/orders.component";
 import {ProductsAdminComponent} from "./components/products.component";
 import {ProductEditorComponent} from "./components/product-editor.component";
+import {PaginationDirective} from "../../../shared/pagintaion/pagination.directive";
+import {ProductService} from "../../store/service/product.service";
 
 let routing = RouterModule.forChild([
   {

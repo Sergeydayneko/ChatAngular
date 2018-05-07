@@ -1,4 +1,4 @@
-import {Product} from "../model/model.product";
+import {Product} from "../model/product.model";
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 
@@ -58,7 +58,7 @@ export class ProductService {
 
   // TODO Р2
   deleteProduct(id: number) {
-    this.http.delete("localhost:8081:deleteproduct")
+    this.http.delete("localhost:8081/deleteproduct")
       .subscribe(p => {
         this.products.splice(this.products.findIndex(
           p => p.id == id), 1);

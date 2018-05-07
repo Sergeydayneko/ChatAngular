@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, OnInit} from "@angular/core";
-import { Product } from "./model/model.product";
+import { Product } from "./model/product.model";
 import { ProductService} from "./service/product.service";
 import { CartService } from "./service/cartService";
 import {Router} from "@angular/router";
