@@ -1,22 +1,18 @@
 <div>
-  <a>STORE</a>
-</div>
-
-<div>
   <h2></h2>
   <table>
     <thead>
     <tr>
-      <th>Quantity</th>
-      <th>Product</th>
-      <th>Price</th>
-      <th>Subtotal</th>
+      <th>Количество</th>
+      <th>Продукт</th>
+      <th>Цена</th>
+      <th>Итого</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngIf="cart.lines.length == 0">
       <td colspan="4">
-        Your cart is empty
+        Ваша карзина пуста
       </td>
     </tr>
     <tr *ngFor="let line of cart.lines">
@@ -36,14 +32,14 @@
       </td>
       <td>
         <button (click)="cart.removeLine(line.product.id)">
-          Remove
+          Удалить
         </button>
       </td>
     </tr>
     </tbody>
     <tfoot>
     <tr>
-      <td colspan="3" >Total:</td>
+      <td colspan="3" >Всего:</td>
       <td>
         {{cart.cartPrice | currency:"RUB":true:"2.2-2"}}
       </td>
@@ -52,9 +48,9 @@
   </table>
 </div>
 <div>
-  <button routerLink="/store">Continue Shopping</button>
+  <button routerLink="/store">Продолжить покупки</button>
   <button routerLink="/order"
           [disabled]="cart.lines.length == 0">
-    Checkout
+    Оформить заказ
   </button>
 </div>

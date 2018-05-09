@@ -1,17 +1,14 @@
-
-<div>
-  <a>STORE</a>
-</div>
-<div *ngIf="orderSent">
+<div *ngIf="orderSent" id="success-order">
   <h2>Thanks!</h2>
   <p>Thanks for placing your order.</p>
   <p>We'll ship your goods as soon as possible.</p>
   <button routerLink="/store">Return to Store</button>
 </div>
+
 <form *ngIf="!orderSent" #form="ngForm" novalidate
       (ngSubmit)="submitOrder(form)">
   <div>
-    <label>Name</label>
+    <label>Имя</label>
     <input #name="ngModel" name="name"
            [(ngModel)]="order.name" required />
     <span  *ngIf="submitted && name.invalid">
@@ -20,7 +17,7 @@
   </div>
 
   <div>
-    <label>Address</label>
+    <label>Адрес</label>
     <input #address="ngModel" name="address"
            [(ngModel)]="order.address" required />
     <span  *ngIf="submitted && address.invalid">
@@ -29,7 +26,8 @@
   </div>
 
   <div>
-    <button routerLink="/cart">Back</button>
-    <button type="submit">Complete Order</button>
+    <button routerLink="/cart">Вернуться назад</button>
+    <button type="submit">Сделать заказ</button>
   </div>
+
 </form>

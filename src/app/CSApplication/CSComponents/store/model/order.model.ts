@@ -1,4 +1,4 @@
-import {CartService} from "../service/cartService";
+import {CartLine, CartService} from "../service/cartService";
 import {Injectable} from "@angular/core";
 
 @Injectable()
@@ -6,6 +6,7 @@ export class Order {
   public name: string;
   public address: string;
   public shipped: boolean = false;
+  public orderLines: CartLine[];
 
   constructor(public cart: CartService) { }
 

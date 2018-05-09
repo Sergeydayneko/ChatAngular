@@ -41,16 +41,15 @@ export class ProductsComponent implements OnInit {
 
   buttonClass = this.buttonClasses[0];
 
-  constructor(private repository: ProductService,
-              private cart: CartService,
-              private router: Router,
-              private service: BookService
+  constructor(private repository : ProductService,
+              private cart       : CartService,
+              private router     : Router,
+              private service    : BookService
               // TODO пока сделано с перерисовкой компонента при изменении состояния
               // private strategy: ChangeDetectionStrategy.OnPush
   ) {}
 
   get products(): Product[] {
-    console.log(this.selectedCategories)
     const pageIndex = (this.selectedPage - 1) * this.productsPerPage;
     return this.repository.getProducts(this.selectedCategories)
       .slice(pageIndex, pageIndex + this.productsPerPage);
