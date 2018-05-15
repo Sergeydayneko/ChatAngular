@@ -20,7 +20,7 @@ export class ProductEditorComponent {
     if (this.editing) {
       Object.assign(
         this.product,
-        this.repository.getProduct(activeRoute.snapshot.params["id"])
+        this.repository.getProduct(+activeRoute.snapshot.params["id"])
         );
 
     }

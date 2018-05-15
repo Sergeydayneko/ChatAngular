@@ -28,7 +28,7 @@ export class ProductService {
 
   getProducts(categories: string[] = null): Product[] | null {
     return this.products
-      .filter(p => categories === null || categories.indexOf(p.category) >= 0);
+      .filter(p => categories === null || categories.indexOf(p.category) > -1);
   }
 
   getProduct(id: number): Product | null {
@@ -39,14 +39,14 @@ export class ProductService {
     return this.categories;
   }
 
-  // TODO нужно ли делать stringify
-  // разбор 2
+  // Добавить id нового продукты при сохранении
+  // TODO Необходимо применить Pattern State для админа и для пользователя
   saveProduct(product: Product) {
     if (product.id == null || product.id ==0) {
-      this.http.post("localhost:8081/saveproduct", JSON.stringify(product))
+      this.http.post("http://localhost:8081/saveproduct", product)
         .subscribe(p => this.products.push(p))
     } else {
-      this.http.post("localhost:8081/updateproduct", JSON.stringify(product))
+      this.http.put("http://localhost:8081/updateproduct", product)
         .subscribe(p => {
           this.products
             .splice(this.products.findIndex(
@@ -56,14 +56,11 @@ export class ProductService {
     }
   }
 
-  // TODO Р2
   deleteProduct(id: number) {
-    this.http.delete("localhost:8081/deleteproduct")
+    this.http.delete(`http://localhost:8081/deleteproduct/${id}`)
       .subscribe(p => {
         this.products.splice(this.products.findIndex(
           p => p.id == id), 1);
       })
   }
-
-
 }

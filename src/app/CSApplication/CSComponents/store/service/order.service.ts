@@ -52,7 +52,7 @@ export class OrderService {
   }
 
   updateOrder(order: AdminOrder) {
-    this.http.put("http://ocalhost:8081/updateorder", order)
+    this.http.put("http://localhost:8081/updateorder", order)
       .subscribe(uorder => {
         this.orders.splice(this.orders.findIndex(
           order => order.id == uorder["id"]), 1, uorder);
@@ -60,7 +60,7 @@ export class OrderService {
   }
 
   deleteOrder(id: number) {
-    this.http.delete(`localhost:8081/deleteorder/${id}`)
+    this.http.delete(`http://localhost:8081/deleteorder/${id}`)
       .subscribe(order => {
         this.orders.splice(this.orders.findIndex(order => id == order.id))
       })
