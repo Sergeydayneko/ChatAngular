@@ -8,15 +8,15 @@ import {NgForm} from "@angular/forms";
   templateUrl: "product-editor.component.html"
 })
 export class ProductEditorComponent {
-  editing: boolean = false;
+  editing = false;
   product: Product = new Product();
 
   constructor(
-    private repository : ProductService,
-    private router     : Router,
-    activeRoute        : ActivatedRoute
+    private repository: ProductService,
+    private router: Router,
+    activeRoute: ActivatedRoute
   ) {
-    this.editing = activeRoute.snapshot.params["mode"] == "edit";
+    this.editing = activeRoute.snapshot.params["mode"] === "edit";
     if (this.editing) {
       Object.assign(
         this.product,

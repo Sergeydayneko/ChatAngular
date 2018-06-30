@@ -4,7 +4,7 @@ import { RegistrationService} from "../service/registration.service";
 import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { User } from "../model/userModel";
 import {PasswordValidation} from "../helpers/PasswordValidation";
-import {Observable} from "rxjs/Observable";
+import {Observable} from "rxjs";
 
 @Component({
   selector: "cs-login",
@@ -50,7 +50,7 @@ export class RegistrationComponent {
       );
   }
 
-  //TODO Complete form starting validation
+  // TODO Complete form starting validation
   @HostListener("click", ["$event"])
   fulfillStarted(event: Event) {
     this.notFill = false;

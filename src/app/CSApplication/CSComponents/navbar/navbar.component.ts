@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit{
 
   constructor(private router: Router,
               private cookie: CookieService,
-              private login : LoginService){}
+              private login: LoginService) {}
 
   goHome() {
     this.router.navigate(["home"]);

@@ -18,7 +18,6 @@
     "forin": true,
     "import-blacklist": [
       true,
-      "rxjs",
       "rxjs/Rx"
     ],
     "import-spacing": true,
@@ -30,7 +29,7 @@
     "label-position": true,
     "max-line-length": [
       true,
-      140
+      240
     ],
     "member-access": false,
     "member-ordering": [
@@ -121,16 +120,16 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "cs",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "cs",
       "kebab-case"
     ],
-    "angular-whitespace": [true, "check-interpolation"],
+    "angular-whitespace": [false, "check-interpolation"],
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,

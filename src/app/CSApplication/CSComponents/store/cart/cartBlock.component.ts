@@ -3,8 +3,8 @@ import {CartService} from "../service/cartService";
 
 
 @Component({
-  selector: 'cart-summary',
-  templateUrl: 'cartBlock.component.html',
+  selector: "cart-summary",
+  templateUrl: "cartBlock.component.html",
   styleUrls: ["cartBlock.component.scss"]
 })
 export class CartBlockComponent {

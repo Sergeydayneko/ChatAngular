@@ -9,7 +9,7 @@ import {ProductEditorComponent} from "./components/product-editor.component";
 import {PaginationDirective} from "../../../shared/pagintaion/pagination.directive";
 import {ProductService} from "../../store/service/product.service";
 
-let routing = RouterModule.forChild([
+const routing = RouterModule.forChild([
   {
     path: "main",
     component: AdminComponent,

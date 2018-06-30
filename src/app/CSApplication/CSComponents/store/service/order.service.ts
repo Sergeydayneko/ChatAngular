@@ -1,8 +1,9 @@
 import {Order} from "../model/order.model";
-import {Observable} from "rxjs/Observable";
+import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {AdminOrder} from "../model/admin-order.model";
+import {map} from "rxjs/operators";
 
 @Injectable()
 export class OrderService {
@@ -13,19 +14,21 @@ export class OrderService {
 
   loadOrders(): Observable<AdminOrder[]> {
     return this.http.get("http://localhost:8081/getorders")
-      .map(orders => {
-        if (orders instanceof Array) {
-          return orders.map(order => {
-            return new AdminOrder(
-              order.id,
-              order.name,
-              order.address,
-              order.orderLines,
-              order.shipped
-            )
-          })
-        }
-    })
+      .pipe(
+        map(orders => {
+          if (orders instanceof Array) {
+            return orders.map(order => {
+              return new AdminOrder(
+                order.id,
+                order.name,
+                order.address,
+                order.orderLines,
+                order.shipped
+              )
+            })
+          }
+        })
+      );
   }
 
   // TODO добавить позже, сохранение коллекции на стороне клиента
