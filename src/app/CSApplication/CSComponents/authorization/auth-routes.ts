@@ -12,6 +12,6 @@ export const appRoutesAuth = [
   { path: "login", component: LoginComponent },
   {
     path: "admin",
-    loadChildren: "/home/sergey/noexec/AngularChat/ChatAngular/src/app/CSApplication/CSComponents/authorization/admin/admin.module#AdminModule"
+    loadChildren: "app/CSApplication/CSComponents/authorization/admin/admin.module#AdminModule"
   }
 ];

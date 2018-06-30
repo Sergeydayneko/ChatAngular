@@ -8,14 +8,14 @@ import {AdminOrder} from "../../../store/model/admin-order.model";
   templateUrl: "orders.component.html"
 })
 export class OrdersAdminComponent {
-  // Сделать кнопку для отображения всех заказов
+  // TODO Сделать кнопку для отображения всех заказов
   includedShipped = false;
 
   constructor(private orderRepository: OrderService) {}
 
-  //TODO заменить на Orders[]
+  // TODO заменить на Orders[]
   get getOrders(): AdminOrder[] {
-    let that = this;
+    const that = this;
     return this.orderRepository.getOrders()
       .filter(order => that.includedShipped || !order.shipped)
   }

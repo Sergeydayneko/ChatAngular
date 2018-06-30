@@ -1,7 +1,7 @@
-export class Message{
+export class Message {
   constructor(
-    public username : string,
-    public text     : string,
-    public date     : string
+    public username: string,
+    public text: string,
+    public date: string
   ) {}
 }
