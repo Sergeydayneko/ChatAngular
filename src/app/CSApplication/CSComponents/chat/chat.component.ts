@@ -1,9 +1,11 @@
 import {Component, OnInit} from "@angular/core";
-import * as Stomp from "stompjs";
+import { Stomp }  from 'stompjs/lib/stomp.js';
 import * as SockJS from "sockjs-client";
 import {CookieService} from "ngx-cookie-service";
 import {Message} from "./model/message";
-import {ChatService} from "./service/messages.service";
+// import {ChatService} from "./service/messages.service";
+import * as socketIo from 'socket.io-client';
+import {ChatService} from "./service/chat.service";
 
 const PROTOCOL = "http";
 const PORT     = "8081";
